@@ -2,17 +2,15 @@
 
 !!! abstract "Assignment Overview"
 
-```
-In this assignment, you will use a **science agent workspace** to complete three small but realistic computational biology tasks:
+    In this assignment, you will use a **science agent workspace** to complete three small but realistic computational biology tasks:
 
-1. **Protein mutation analysis**
-2. **Single-cell RNA-seq analysis and robustness testing**
-3. **Spatial transcriptomics and spatial organization**
+    1. **Protein mutation analysis**
+    2. **Single-cell RNA-seq analysis and robustness testing**
+    3. **Spatial transcriptomics and spatial organization**
 
-These tasks are designed to run on a **normal laptop**. You do not need a GPU, and you will not train any machine-learning models.
+    These tasks are designed to run on a **normal laptop**. You do not need a GPU, and you will not train any machine-learning models.
 
-The goal is not simply to obtain an answer from an AI model. You will use an agent to **plan an analysis, execute code, inspect results, use scientific databases, test assumptions, and evaluate whether its conclusions are supported by evidence**.
-```
+    The goal is not simply to obtain an answer from an AI model. You will use an agent to **plan an analysis, execute code, inspect results, use scientific databases, test assumptions, and evaluate whether its conclusions are supported by evidence**.
 
 ---
 
@@ -60,9 +58,9 @@ Although their implementations differ, both systems illustrate the same importan
 
 > ==A scientific agent should not only generate an answer. It should be able to perform and document the analysis that supports that answer.==
 
-![Example of a science agent workspace](assets/images/science-agent-workspace.png)
+![Illustrated science-agent research workflow](images/science-agent-workspace.svg)
 
-*Example concept of a science agent workspace. Replace this image with a screenshot from Claude Science, Rosalind, or another system if desired.*
+*Conceptual illustration; no live product screenshot or agent run is shown.*
 
 ---
 
@@ -100,11 +98,9 @@ This makes OpenScience particularly useful for this assignment because each of t
 
 !!! important "You are still responsible for the analysis"
 
-```
-OpenScience can generate code, select tools, interpret results, and search for evidence. None of these actions are guaranteed to be correct.
+    OpenScience can generate code, select tools, interpret results, and search for evidence. None of these actions are guaranteed to be correct.
 
-You should treat the agent as a **research assistant**, not as an authority.
-```
+    You should treat the agent as a **research assistant**, not as an authority.
 
 ---
 
@@ -114,57 +110,53 @@ OpenScience is the workspace, but it still requires an underlying language model
 
 === "If you already have Claude or GPT access"
 
-```
-If you already have access to a strong Claude or GPT model that can be used for scientific or agentic workflows, we recommend using your existing subscription.
+    If you already have access to a strong Claude or GPT model that can be used for scientific or agentic workflows, we recommend using your existing subscription.
 
-Stronger models generally perform better at:
+    Stronger models generally perform better at:
 
-- multi-step planning,
-- choosing appropriate tools,
-- debugging code,
-- interpreting scientific results,
-- recognizing when an analysis has failed.
+    - multi-step planning,
+    - choosing appropriate tools,
+    - debugging code,
+    - interpreting scientific results,
+    - recognizing when an analysis has failed.
 
-You may still use OpenScience if you prefer the open-source workspace.
-```
+    You may still use OpenScience if you prefer the open-source workspace.
 
 === "If you want a free option"
 
-````
-You can use:
+    You can use:
 
-**OpenScience + OpenRouter + a free model**
+    **OpenScience + OpenRouter + a free model**
 
-**OpenRouter** provides a common API interface for many language models from different providers. Some models are available through free inference tiers.
+    **OpenRouter** provides a common API interface for many language models from different providers. Some models are available through free inference tiers.
 
-The basic setup is:
+    The basic setup is:
 
-```text
-OpenScience
-     ↓
-OpenRouter API
-     ↓
-Free language model
-```
+    ```text
+    OpenScience
+         ↓
+    OpenRouter API
+         ↓
+    Free language model
+    ```
 
-Free models can be sufficient for this assignment, but their performance may vary considerably.
+    Free models can be sufficient for this assignment, but their performance may vary considerably.
 
-In particular, weaker models may have more difficulty with:
+    In particular, weaker models may have more difficulty with:
 
-- long analysis plans,
-- tool selection,
-- debugging,
-- interpreting biological results,
-- keeping track of previous analysis steps.
+    - long analysis plans,
+    - tool selection,
+    - debugging,
+    - interpreting biological results,
+    - keeping track of previous analysis steps.
 
-!!! warning
+    !!! warning
 
-    A model being free does **not** mean that it is appropriate for agent workflows.
+        A model being free does **not** mean that it is appropriate for agent workflows.
 
-    When selecting a model, prefer one that supports **tool use / function calling** and has a reasonably large context window.
+        When selecting a model, prefer one that supports **tool use / function calling** and has a reasonably large context window.
 
-    Free models available through OpenRouter can change over time, so you do not need to use the same model as other students.
-````
+        Free models available through OpenRouter can change over time, so you do not need to use the same model as other students.
 
 ---
 
@@ -178,33 +170,27 @@ Choose one installation method.
 
 === "npm"
 
-````
-```bash
-npm install -g @synsci/openscience
-```
+    ```bash
+    npm install -g @synsci/openscience
+    ```
 
-Start it with:
+    Start it with:
 
-```bash
-openscience
-```
-````
+    ```bash
+    openscience
+    ```
 
 === "Run without installing"
 
-````
-```bash
-npx synsci
-```
-````
+    ```bash
+    npx synsci
+    ```
 
 === "macOS / Linux installer"
 
-````
-```bash
-curl -fsSL https://openscience.sh/install | bash
-```
-````
+    ```bash
+    curl -fsSL https://openscience.sh/install | bash
+    ```
 
 Once OpenScience starts correctly, create a workspace for this assignment.
 
@@ -243,16 +229,14 @@ If you are using OpenRouter, add your OpenRouter API key and select an appropria
 
 !!! danger "Never expose API keys"
 
-```
-Do **not** include API keys in:
+    Do **not** include API keys in:
 
-- your report,
-- screenshots,
-- notebooks,
-- GitHub repositories,
-- submitted code,
-- shared configuration files.
-```
+    - your report,
+    - screenshots,
+    - notebooks,
+    - GitHub repositories,
+    - submitted code,
+    - shared configuration files.
 
 ---
 
@@ -292,21 +276,19 @@ you intend to use and why.
 
 !!! tip "Interact with the agent"
 
-```
-Good use of a science agent should involve follow-up questions.
+    Good use of a science agent should involve follow-up questions.
 
-For example:
+    For example:
 
-> Why did you choose this clustering parameter?
+    > Why did you choose this clustering parameter?
 
-> What evidence supports this cell-type annotation?
+    > What evidence supports this cell-type annotation?
 
-> Can you test whether this result remains stable with another parameter?
+    > Can you test whether this result remains stable with another parameter?
 
-> Is this conclusion computed from the data, or retrieved from a database?
+    > Is this conclusion computed from the data, or retrieved from a database?
 
-> What would be an appropriate negative control?
-```
+    > What would be an appropriate negative control?
 
 The three tasks below are designed so that the **first result should not be the end of the analysis**.
 
@@ -438,9 +420,9 @@ A useful summary table might look like:
 | Mutation B | Surface loop       | No nearby functional residues | Effect uncertain     | Low        |
 | Mutation C | Protein core       | Multiple hydrophobic contacts | May destabilize fold | Moderate   |
 
-![Example protein mutation visualization](assets/images/example-protein.png)
+![Illustrative protein ribbon with a highlighted mutation and functional site](images/protein-mutation-schematic.svg)
 
-*Example of mutations mapped onto a protein structure.*
+*Schematic only; this is not a structure of a particular protein or mutation.*
 
 ---
 
@@ -506,11 +488,9 @@ Final annotation
 
 !!! warning
 
-```
-Do not accept a cell-type label simply because the agent produced it.
+    Do not accept a cell-type label simply because the agent produced it.
 
-The annotation should be supported by the expression pattern of biologically meaningful marker genes.
-```
+    The annotation should be supported by the expression pattern of biologically meaningful marker genes.
 
 ---
 
@@ -570,11 +550,9 @@ This part is important because real biological data rarely produce perfectly sep
 
 !!! question "Think biologically"
 
-```
-If two populations are difficult to separate, do not immediately conclude that the clustering algorithm failed.
+    If two populations are difficult to separate, do not immediately conclude that the clustering algorithm failed.
 
-Ask whether the biology itself may represent a continuum rather than two sharply separated cell types.
-```
+    Ask whether the biology itself may represent a continuum rather than two sharply separated cell types.
 
 ---
 
@@ -616,9 +594,9 @@ A useful summary table might be:
 | Population B    | ...               | Mostly                     | Yes                        | Splits at high resolution |
 | Population C    | ...               | No                         | No                         | Ambiguous population      |
 
-![Example single-cell analysis](assets/images/example-single-cell-umap.png)
+![Illustrative UMAP with synthetic point clusters](images/single-cell-umap-schematic.svg)
 
-*Example visualization of cell populations in a UMAP embedding.*
+*Synthetic points for illustration only; these are not PBMC3k analysis results.*
 
 The final discussion should answer:
 
@@ -680,9 +658,9 @@ Ask whether the expression-defined domains:
 * have recognizable boundaries,
 * tend to occur next to specific other domains.
 
-![Example spatial transcriptomics domains](assets/images/example-spatial-clusters.png)
+![Illustrative spatial transcriptomics tissue domains](images/spatial-domains-schematic.svg)
 
-*Example of transcriptionally defined clusters projected back onto tissue coordinates.*
+*Schematic only; this does not show measurements from a spatial transcriptomics dataset.*
 
 ---
 
@@ -774,11 +752,9 @@ The important point is that the **same statistic** should be evaluated on the or
 
 !!! success "What the control should tell you"
 
-```
-If the original dataset contains genuine spatial organization, the spatial signal should generally be stronger than the signal obtained after randomization.
+    If the original dataset contains genuine spatial organization, the spatial signal should generally be stronger than the signal obtained after randomization.
 
-This does not prove a biological mechanism, but it provides evidence that the observed pattern is not simply produced by the analysis pipeline.
-```
+    This does not prove a biological mechanism, but it provides evidence that the observed pattern is not simply produced by the analysis pipeline.
 
 ---
 
@@ -863,41 +839,35 @@ You do not need to include package caches, temporary downloads, or other unneces
 
 === "Protein"
 
-```
-Include:
+    Include:
 
-- protein and mutation information,
-- mutation comparison table,
-- structural visualization,
-- quantitative structural evidence,
-- mechanistic interpretation,
-- external database or literature evidence.
-```
+    - protein and mutation information,
+    - mutation comparison table,
+    - structural visualization,
+    - quantitative structural evidence,
+    - mechanistic interpretation,
+    - external database or literature evidence.
 
 === "Single-cell"
 
-```
-Include:
+    Include:
 
-- annotated UMAP,
-- marker-gene evidence,
-- clustering robustness comparison,
-- downsampling analysis,
-- discussion of one ambiguous population.
-```
+    - annotated UMAP,
+    - marker-gene evidence,
+    - clustering robustness comparison,
+    - downsampling analysis,
+    - discussion of one ambiguous population.
 
 === "Spatial transcriptomics"
 
-```
-Include:
+    Include:
 
-- expression-based clustering,
-- spatial visualization,
-- quantitative spatial statistics,
-- spatially variable genes,
-- comparison with differential-expression genes,
-- randomized negative control.
-```
+    - expression-based clustering,
+    - spatial visualization,
+    - quantitative spatial statistics,
+    - spatially variable genes,
+    - comparison with differential-expression genes,
+    - randomized negative control.
 
 ---
 
@@ -951,11 +921,9 @@ Explain what you noticed and how you evaluated or corrected it.
 
 !!! important
 
-```
-You are **expected** to identify at least one weakness in the agent's analysis.
+    You are **expected** to identify at least one weakness in the agent's analysis.
 
-Finding and correcting a problem is evidence that you used the system critically.
-```
+    Finding and correcting a problem is evidence that you used the system critically.
 
 ---
 

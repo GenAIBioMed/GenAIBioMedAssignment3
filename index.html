@@ -8,9 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://genaibiomed.github.io/GenAIBioMedAssignment2/">
+        <link rel="canonical" href="https://genaibiomed.github.io/GenAIBioMedAssignment3/">
       
       
+      
+        <link rel="next" href="grading_rubric/">
       
       
         
@@ -43,6 +45,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="stylesheets/figures.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -254,6 +258,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#checkpoints-and-grading-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoints and grading at a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-science-agent-workspaces" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -353,10 +368,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#data-supplied-for-this-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data supplied for this assignment
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grading_rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grading rubric
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -388,6 +441,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#checkpoints-and-grading-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoints and grading at a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-science-agent-workspaces" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -481,6 +545,17 @@
     <span class="md-ellipsis">
       
         5. How to Work with the Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-supplied-for-this-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data supplied for this assignment
       
     </span>
   </a>
@@ -517,6 +592,51 @@
 <p>The goal is not simply to obtain an answer from an AI model. You will use an agent to <strong>plan an analysis, execute code, inspect results, use scientific databases, test assumptions, and evaluate whether its conclusions are supported by evidence</strong>.</p>
 </div>
 <hr />
+<h2 id="checkpoints-and-grading-at-a-glance">Checkpoints and grading at a glance</h2>
+<p>Use the checkpoints below as a progress check. A checkpoint is complete when you can point to the <strong>result and the code or source behind it</strong> in your submission. The <a href="grading_rubric/">100-point grading rubric</a> gives the point value and expected evidence for each checkpoint.</p>
+<table>
+<thead>
+<tr>
+<th>Checkpoints</th>
+<th>What you should be able to show</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1–P4 · Protein</strong></td>
+<td>Verified sequence/structure mapping, measurements, an annotated structure, and a mutation comparison with uncertainty</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td><strong>S1–S5 · Single-cell</strong></td>
+<td>QC and baseline, marker-based labels, resolution and downsampling comparisons, and one investigated ambiguous population</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td><strong>T1–T5 · Spatial</strong></td>
+<td>Expression-only clusters on tissue, spatial statistic and genes, DE comparison, and a randomized null result</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td><strong>A · Agent audit</strong></td>
+<td>For <strong>each</strong> task: sources, computed versus retrieved information, one independent check, and one weakness or limitation</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td><strong>R · Reproducibility and report</strong></td>
+<td>Ordered code, data sources, settings/seeds, figures tied to results, and a checkpoint evidence list</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>There is no required biological answer or target value. You are graded on whether your methods are appropriate, results are actually shown, and conclusions match the evidence. Before submission, mark each checkpoint in your report as <strong>complete</strong> or <strong>needs revision</strong> and give the page or file that contains its evidence.</p>
+<hr />
 <h2 id="1-science-agent-workspaces">1. Science Agent Workspaces</h2>
 <p>Large language models are increasingly being used as interactive scientific assistants. A science agent workspace extends a language model with tools that allow it to do more than answer questions in natural language.</p>
 <p>A typical workspace may allow an agent to:</p>
@@ -549,12 +669,21 @@
 <h3 id="claude-science-and-gpt-rosalind-workbench">Claude Science and GPT-Rosalind Workbench</h3>
 <p><strong>Claude Science</strong> is Anthropic's scientific research workspace. It combines Claude with scientific tools, computational environments, files, databases, and external computing resources. A researcher can describe a scientific objective and interact with the agent while it performs a multi-step analysis.</p>
 <p><strong>GPT-Rosalind / Rosalind Workbench</strong> follows a similar idea with a stronger focus on life-science workflows. It is designed to help researchers work with biological data, scientific evidence, sequencing workflows, computational tools, and reusable analysis procedures.</p>
+<div class="figure-grid">
+  <figure class="figure-card figure-card--overview">
+    <a href="images/claude-science-workflow.webp"><img src="images/claude-science-workflow.webp" alt="Claude Science interface showing an scVI parameter sweep beside a live Python notebook"></a>
+    <figcaption><strong>Claude Science:</strong> an agent organizes an scVI parameter sweep beside executable notebook code. This is an <a href="https://claude.com/product/claude-science">official product example</a>, not a result from this assignment. Click to enlarge.</figcaption>
+  </figure>
+  <figure class="figure-card figure-card--overview">
+    <a href="images/gpt-rosalind-single-cell.webp"><img src="images/gpt-rosalind-single-cell.webp" alt="GPT-Rosalind example showing a single-cell quality-control request, output files, and UMAP plots"></a>
+    <figcaption><strong>GPT-Rosalind:</strong> a single-cell QC request leads to saved artifacts and plots in an <a href="https://openai.com/gpt-rosalind/">official product example</a>. The task below still requires you to inspect the code and evidence. Click to enlarge.</figcaption>
+  </figure>
+</div>
+
 <p>Although their implementations differ, both systems illustrate the same important idea:</p>
 <blockquote>
 <p><mark>A scientific agent should not only generate an answer. It should be able to perform and document the analysis that supports that answer.</mark></p>
 </blockquote>
-<p><img alt="Illustrated science-agent research workflow" src="images/science-agent-workspace.svg" /></p>
-<p><em>Conceptual illustration; no live product screenshot or agent run is shown.</em></p>
 <hr />
 <h2 id="2-open-source-workspace-synthetic-sciences-openscience">2. Open-Source Workspace: Synthetic Sciences OpenScience</h2>
 <p>For this assignment, the recommended open-source implementation is <strong>Synthetic Sciences OpenScience</strong>.</p>
@@ -581,6 +710,11 @@
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                        evidence, and conclusions
 </span></code></pre></div>
 <p>This makes OpenScience particularly useful for this assignment because each of the three tasks requires the agent to combine <strong>computation with scientific reasoning</strong>.</p>
+<figure class="figure-card">
+  <a href="images/openscience-workspace.png"><img src="images/openscience-workspace.png" alt="OpenScience workspace with Customize and Files in the sidebar, a recorded analysis, and a model selector below the prompt"></a>
+  <figcaption><strong>Where to look:</strong> <em>Customize</em> is in the left sidebar, the activity and evidence trail is in the center, and the selected model appears below the prompt. This <a href="https://github.com/synthetic-sciences/openscience/blob/main/assets/workspace.png">official OpenScience screenshot</a> is a product demonstration using EGFR data, not a worked answer. Click to enlarge.</figcaption>
+</figure>
+
 <div class="admonition important">
 <p class="admonition-title">You are still responsible for the analysis</p>
 <p>OpenScience can generate code, select tools, interpret results, and search for evidence. None of these actions are guaranteed to be correct.</p>
@@ -627,11 +761,16 @@
 <p class="admonition-title">Warning</p>
 <p>A model being free does <strong>not</strong> mean that it is appropriate for agent workflows.</p>
 <p>When selecting a model, prefer one that supports <strong>tool use / function calling</strong> and has a reasonably large context window.</p>
+</div>
 <p>Free models available through OpenRouter can change over time, so you do not need to use the same model as other students.</p>
 </div>
 </div>
 </div>
-</div>
+<figure class="figure-card">
+  <a href="images/openrouter-free-models.png"><img src="images/openrouter-free-models.png" alt="OpenRouter public Free AI Models collection with model names, context lengths, and input and output prices"></a>
+  <figcaption><strong>Find a model:</strong> the <a href="https://openrouter.ai/collections/free-models">OpenRouter free-model collection</a> displays current candidates and prices. This screenshot was captured in September 2026; rankings and availability change. Open each candidate's details to check tool calling and context length. Click to enlarge.</figcaption>
+</figure>
+
 <hr />
 <h2 id="4-installing-and-configuring-openscience">4. Installing and Configuring OpenScience</h2>
 <p>You only need to complete this setup once.</p>
@@ -675,6 +814,13 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>openscience<span class="w"> </span>keys<span class="w"> </span>add
 </span></code></pre></div>
 <p>If you are using OpenRouter, add your OpenRouter API key and select an appropriate model.</p>
+<p>For the OpenRouter route:</p>
+<ol>
+<li>Create a key on the <a href="https://openrouter.ai/settings/keys">OpenRouter API Keys page</a>.</li>
+<li>Find a suitable text model in the <a href="https://openrouter.ai/collections/free-models">free-model collection</a>; confirm that it supports tool calling and check its current rate limits.</li>
+<li>In OpenScience, open <strong>Customize → Models</strong>, connect <strong>OpenRouter</strong>, enter the key, and select that model. The <a href="https://github.com/synthetic-sciences/openscience#install">OpenScience setup instructions</a> also show the <code>openscience keys add</code> route.</li>
+<li>Try a small prompt that reads a file and runs a short calculation. Confirm that the selected model can actually use tools before starting the assignment.</li>
+</ol>
 <div class="admonition danger">
 <p class="admonition-title">Never expose API keys</p>
 <p>Do <strong>not</strong> include API keys in:</p>
@@ -727,6 +873,50 @@
 </div>
 <p>The three tasks below are designed so that the <strong>first result should not be the end of the analysis</strong>.</p>
 <hr />
+<h2 id="data-supplied-for-this-assignment">Data supplied for this assignment</h2>
+<p>The repository includes the small input files below in <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/tree/main/datasets"><code>datasets/</code></a>. Download links point both to the repository copy and to the original source. The spatial dataset is the required input for Task 3; 4HJO is an <strong>optional practice structure</strong>, since the protein and candidate mutations for Task 1 are supplied separately.</p>
+<table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Repository download</th>
+<th>Original source</th>
+<th style="text-align: right;">Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Task 2:</strong> PBMC3k filtered counts</td>
+<td><a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz">PBMC3k matrix archive</a></td>
+<td><a href="https://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz">10x Genomics PBMC3k</a></td>
+<td style="text-align: right;">7.3 MiB</td>
+</tr>
+<tr>
+<td><strong>Task 3:</strong> adult mouse-brain Visium counts</td>
+<td><a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5">Visium count matrix</a></td>
+<td><a href="https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5">10x Genomics count matrix</a></td>
+<td style="text-align: right;">20.1 MiB</td>
+</tr>
+<tr>
+<td><strong>Task 3:</strong> matching spatial coordinates and tissue images</td>
+<td><a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_spatial.tar.gz">Visium spatial archive</a></td>
+<td><a href="https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_spatial.tar.gz">10x Genomics spatial archive</a></td>
+<td style="text-align: right;">8.6 MiB</td>
+</tr>
+<tr>
+<td><strong>Task 1 practice only:</strong> EGFR structure</td>
+<td><a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz">4HJO mmCIF</a> · <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.pdb">4HJO PDB</a></td>
+<td><a href="https://www.rcsb.org/structure/4HJO">RCSB PDB 4HJO</a></td>
+<td style="text-align: right;">71 + 219 KiB</td>
+</tr>
+</tbody>
+</table>
+<p>If you cloned the repository, these files are already under <code>datasets/</code>. Extract the two archives once from the repository root:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>datasets/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz<span class="w"> </span>-C<span class="w"> </span>datasets/pbmc3k
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_spatial.tar.gz<span class="w"> </span>-C<span class="w"> </span>datasets/visium_mouse_brain
+</span></code></pre></div>
+<p>The PBMC3k matrix then lives in <code>datasets/pbmc3k/filtered_gene_bc_matrices/hg19/</code>. For Visium, keep the <code>.h5</code> file and extracted <code>spatial/</code> folder together in <code>datasets/visium_mouse_brain/</code>. See the <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/blob/main/datasets/README.md">dataset README</a> for checksums, provenance, and loading examples. Record the exact input file names and any filtering decisions in your report.</p>
+<hr />
 <h1 id="task-1-predicting-the-effects-of-protein-mutations">Task 1 — Predicting the Effects of Protein Mutations</h1>
 <h2 id="scientific-question">Scientific Question</h2>
 <p>You will be given a protein and several candidate missense mutations.</p>
@@ -736,17 +926,17 @@
 </blockquote>
 <p>You should integrate multiple types of evidence rather than relying on a single prediction.</p>
 <p>The overall reasoning should look like:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Protein sequence
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>      +
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Protein structure
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      +
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Functional annotations
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>      +
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>Scientific literature
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>      ↓
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>Evidence for each mutation
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>      ↓
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>Mechanistic hypothesis
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Protein sequence
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>      +
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Protein structure
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>      +
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Functional annotations
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>      +
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>Scientific literature
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>      ↓
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>Evidence for each mutation
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>      ↓
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>Mechanistic hypothesis
 </span></code></pre></div>
 <hr />
 <h2 id="suggested-analysis">Suggested Analysis</h2>
@@ -770,9 +960,9 @@
 </ul>
 <p>Whenever possible, support these observations with <strong>quantitative measurements</strong>.</p>
 <p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Mutation → active-site distance
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Mutation → ligand distance
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Nearby residues within 5 Å
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Mutation → active-site distance
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Mutation → ligand distance
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Nearby residues within 5 Å
 </span></code></pre></div>
 <p>A statement such as:</p>
 <blockquote>
@@ -782,6 +972,11 @@
 <blockquote>
 <p>"The mutated residue is 4.1 Å from a catalytic residue and lies within the same conserved domain."</p>
 </blockquote>
+<figure class="figure-card">
+  <a href="images/egfr-ligand-distances.png"><img src="images/egfr-ligand-distances.png" alt="Measured shortest heavy-atom distances from twelve EGFR 4HJO chain A residues to erlotinib ligand AQ4"></a>
+  <figcaption><strong>Measurement example:</strong> the 12 closest modeled chain-A residues to erlotinib (AQ4) in <a href="https://www.rcsb.org/structure/4HJO">4HJO</a>, measured as the minimum heavy-atom distance. The <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/blob/main/scripts/render_4hjo_contacts.py">plotting code</a> and coordinate file are supplied. Proximity alone does not show what a mutation will do; use the assigned protein and candidate sites in your own analysis. Click to enlarge.</figcaption>
+</figure>
+
 <hr />
 <h3 id="distinguish-observation-from-interpretation">Distinguish Observation from Interpretation</h3>
 <p>A major goal of this task is to separate what the data show from what you infer.</p>
@@ -810,18 +1005,18 @@
 <p><mark>Do not present a prediction as if it were directly observed.</mark></p>
 <hr />
 <h3 id="example-starting-prompt">Example Starting Prompt</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>I want to evaluate how several missense mutations may affect this protein.
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>First create an analysis plan. Use protein sequence, structural information,
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>functional annotations, and scientific literature.
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>Whenever possible, perform quantitative structural analysis rather than
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>relying only on visual inspection.
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>For each mutation, clearly separate:
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>1. observations from the data,
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>2. mechanistic predictions,
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>3. external evidence.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>I want to evaluate how several missense mutations may affect this protein.
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>First create an analysis plan. Use protein sequence, structural information,
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>functional annotations, and scientific literature.
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>Whenever possible, perform quantitative structural analysis rather than
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>relying only on visual inspection.
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>For each mutation, clearly separate:
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>1. observations from the data,
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>2. mechanistic predictions,
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>3. external evidence.
 </span></code></pre></div>
 <p>You should modify your prompts as the analysis progresses.</p>
 <hr />
@@ -870,12 +1065,37 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Illustrative protein ribbon with a highlighted mutation and functional site" src="images/protein-mutation-schematic.svg" /></p>
-<p><em>Schematic only; this is not a structure of a particular protein or mutation.</em></p>
+<div class="figure-explain">
+  <figure>
+    <a href="images/egfr-4hjo.jpeg"><img src="images/egfr-4hjo.jpeg" alt="Experimental EGFR kinase domain ribbon with bound erlotinib from RCSB PDB 4HJO"></a>
+    <figcaption><strong>Practice structure:</strong> experimental EGFR kinase domain with erlotinib, <a href="https://www.rcsb.org/structure/4HJO">RCSB PDB 4HJO</a>. No candidate mutation is marked. Click to enlarge.</figcaption>
+  </figure>
+  <div class="figure-guide">
+    <h4>Turn a structure image into evidence</h4>
+    <ol>
+      <li>Record the PDB ID, chain, ligand, residue numbering, and which assigned positions are covered.</li>
+      <li>Mark <em>your assigned</em> candidate sites on the structure.</li>
+      <li>Measure relevant atom-to-atom distances and state the measurement rule.</li>
+      <li>Explain what the geometry suggests, with an explicit uncertainty statement.</li>
+    </ol>
+    <p>Use the bundled <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz">4HJO structure</a> only to practice this workflow. RCSB lists one mutation in its deposited construct, so verify sequence mapping before drawing conclusions. Your submission must use the assigned protein.</p>
+  </div>
+</div>
+
+<div class="admonition success">
+<p class="admonition-title">Protein checkpoints · 25 points</p>
+<ul>
+<li><strong>P1:</strong> Confirm the protein, mutation notation, and residue mapping to the chosen structure or model.</li>
+<li><strong>P2:</strong> Show reproducible structural measurements for the candidates, or document why a measurement is not valid and use a justified alternative.</li>
+<li><strong>P3:</strong> Separate observed facts, mechanistic predictions, external evidence, and uncertainty in the mutation comparison.</li>
+<li><strong>P4:</strong> Include an annotated structure and a comparison table covering every candidate.</li>
+</ul>
+<p>See the <a href="grading_rubric/#task-1-protein-mutation-analysis-25-points">grading summary</a>.</p>
+</div>
 <hr />
 <h1 id="task-2-single-cell-cell-types-and-robustness">Task 2 — Single-Cell Cell Types and Robustness</h1>
 <h2 id="scientific-question_1">Scientific Question</h2>
-<p>For this task, you will analyze the small <strong>PBMC3k single-cell RNA-seq dataset</strong>.</p>
+<p>For this task, analyze the <strong>PBMC3k single-cell RNA-seq dataset</strong> supplied as a <a href="#data-supplied-for-this-assignment">filtered count-matrix archive</a>. Extract it as shown above; begin from the counts, without preassigned cell-type labels.</p>
 <p>Your goal is not only to identify major immune-cell populations, but also to ask:</p>
 <blockquote>
 <p><strong>Which biological conclusions remain stable when reasonable analysis choices are changed?</strong></p>
@@ -885,37 +1105,42 @@
 <h2 id="build-a-baseline-analysis">Build a Baseline Analysis</h2>
 <p>Ask the agent to develop a reasonable single-cell analysis workflow.</p>
 <p>A typical workflow may contain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Expression matrix
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>      ↓
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Quality control
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>      ↓
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>Normalization
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>      ↓
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>Highly variable genes
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>      ↓
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>PCA
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>      ↓
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>Cell-cell neighbor graph
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>      ↓
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>Clustering
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>      ↓
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>Marker genes
-</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>      ↓
-</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>Cell-type annotation
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Expression matrix
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>      ↓
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Quality control
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      ↓
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>Normalization
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>      ↓
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>Highly variable genes
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>      ↓
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>PCA
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>      ↓
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>Cell-cell neighbor graph
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>      ↓
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>Clustering
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>      ↓
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>Marker genes
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>      ↓
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>Cell-type annotation
 </span></code></pre></div>
 <p>You do not need to tell the agent every Scanpy command.</p>
 <p>Part of the assignment is evaluating whether the agent chooses and correctly implements a reasonable workflow.</p>
 <p>Once clusters have been identified, use <strong>marker genes derived from the data</strong> to annotate major cell populations.</p>
+<figure class="figure-card">
+  <a href="images/scanpy-qc-example.png"><img src="images/scanpy-qc-example.png" alt="Three Scanpy QC violin plots for genes per cell, total counts, and mitochondrial count fraction"></a>
+  <figcaption><strong>QC example:</strong> the <a href="https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering.html#quality-control">Scanpy preprocessing tutorial</a> inspects genes per cell, total counts, and mitochondrial fraction before choosing filters. It uses a different BMMC dataset; choose and justify thresholds from your own PBMC3k measurements. Click to enlarge.</figcaption>
+</figure>
+
 <p>The reasoning should follow:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Observed cluster
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>      ↓
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Marker genes from the dataset
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      ↓
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>Possible biological identity
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>      ↓
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>Database / literature evidence
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>      ↓
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>Final annotation
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Observed cluster
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>      ↓
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Marker genes from the dataset
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>      ↓
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Possible biological identity
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>      ↓
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>Database / literature evidence
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>      ↓
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>Final annotation
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -925,12 +1150,17 @@
 <hr />
 <h2 id="test-whether-the-result-is-robust">Test Whether the Result Is Robust</h2>
 <p>After obtaining a reasonable baseline result, change the clustering conditions.</p>
-<p>For example, compare several Leiden resolutions:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>resolution = 0.3
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>resolution = 0.6
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>resolution = 1.0
+<p>Compare at least three Leiden resolutions while keeping the other preprocessing and neighbor settings fixed. One reasonable set is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>resolution = 0.3
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>resolution = 0.6
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>resolution = 1.0
 </span></code></pre></div>
 <p>You are not trying to find one "correct" resolution.</p>
+<figure class="figure-card">
+  <a href="images/scanpy-resolution-example.png"><img src="images/scanpy-resolution-example.png" alt="Scanpy UMAP panels of the same cells colored by clusters at three Leiden resolutions"></a>
+  <figcaption><strong>Resolution comparison:</strong> <a href="https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering.html#clustering">Scanpy's example</a> shows how the same embedding can split into more groups as Leiden resolution increases. It uses a different dataset and different values; your report should compare biological labels and markers as well as cluster counts. Click to enlarge.</figcaption>
+</figure>
+
 <p>Instead, ask:</p>
 <ul>
 <li>Which populations appear consistently?</li>
@@ -939,8 +1169,8 @@
 <li>Do the biological annotations remain stable?</li>
 </ul>
 <p>Next, perform a simple <strong>downsampling experiment</strong>.</p>
-<p>For example, randomly retain approximately 70% of the cells and repeat the analysis.</p>
-<p>Compare the downsampled result with the original analysis using appropriate evidence such as:</p>
+<p>For example, randomly retain approximately 70% of the cells (any fraction from 60–80% is acceptable), record the seed, and repeat the relevant baseline analysis steps.</p>
+<p>Compare the downsampled result with the original analysis <strong>on cells present in both runs</strong> using appropriate evidence such as:</p>
 <ul>
 <li>cluster composition,</li>
 <li>marker genes,</li>
@@ -970,19 +1200,19 @@
 </div>
 <hr />
 <h3 id="example-starting-prompt_1">Example Starting Prompt</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Analyze the PBMC3k dataset and identify its major cell populations.
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Do not use predefined cell labels.
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>First propose a reasonable single-cell analysis plan. Use marker genes
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>derived from the data to support each annotation.
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>After obtaining a baseline result, test whether the main biological
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>conclusions remain stable when clustering parameters are changed and
-</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>when the dataset is downsampled.
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
-</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>Finally, identify at least one ambiguous or unstable population and
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>investigate why it is difficult to separate.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Analyze the PBMC3k dataset and identify its major cell populations.
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Do not use predefined cell labels.
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>First propose a reasonable single-cell analysis plan. Use marker genes
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>derived from the data to support each annotation.
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>After obtaining a baseline result, test whether the main biological
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>conclusions remain stable when clustering parameters are changed and
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>when the dataset is downsampled.
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>Finally, identify at least one ambiguous or unstable population and
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>investigate why it is difficult to separate.
 </span></code></pre></div>
 <hr />
 <h3 id="expected-results_1">Expected Results</h3>
@@ -1029,8 +1259,22 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Illustrative UMAP with synthetic point clusters" src="images/single-cell-umap-schematic.svg" /></p>
-<p><em>Synthetic points for illustration only; these are not PBMC3k analysis results.</em></p>
+<figure class="figure-card">
+  <a href="images/pbmc-reference-umap.png"><img src="images/pbmc-reference-umap.png" alt="UMAP of 700 real PBMC cells with reference labels from the separate Scanpy PBMC68k reduced dataset"></a>
+  <figcaption><strong>Annotated UMAP example:</strong> real cells and reference labels from <a href="https://scanpy.readthedocs.io/en/stable/tutorials/plotting/core.html">Scanpy's reduced PBMC68k dataset</a>, plotted for this page. This is a different dataset from your PBMC3k analysis; do not copy these labels or expect this layout. Click to enlarge.</figcaption>
+</figure>
+
+<div class="admonition success">
+<p class="admonition-title">Single-cell checkpoints · 25 points</p>
+<ul>
+<li><strong>S1:</strong> Record QC decisions and a reproducible baseline, including cluster counts and a cluster-labeled UMAP.</li>
+<li><strong>S2:</strong> Support major cell labels with markers computed from the data; retain uncertain labels where needed.</li>
+<li><strong>S3:</strong> Compare at least three Leiden resolutions while keeping other settings fixed, and quantify a meaningful change.</li>
+<li><strong>S4:</strong> Rerun a fixed-seed 60–80% cell subsample and compare it with the baseline on retained cells.</li>
+<li><strong>S5:</strong> Investigate one ambiguous or unstable population with marker evidence.</li>
+</ul>
+<p>See the <a href="grading_rubric/#task-2-single-cell-analysis-25-points">grading summary</a>.</p>
+</div>
 <p>The final discussion should answer:</p>
 <blockquote>
 <p><strong>Which biological conclusions are robust, and which depend strongly on analytical choices?</strong></p>
@@ -1038,34 +1282,49 @@
 <hr />
 <h1 id="task-3-spatial-transcriptomics-and-non-random-tissue-organization">Task 3 — Spatial Transcriptomics and Non-Random Tissue Organization</h1>
 <h2 id="scientific-question_2">Scientific Question</h2>
-<p>For the final task, you will work with a small spatial transcriptomics dataset, such as a Visium example dataset available through Squidpy.</p>
+<p>For the final task, use the <strong>V1 Adult Mouse Brain Visium</strong> count matrix, spatial coordinates, and tissue images supplied in <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/tree/main/datasets/visium_mouse_brain"><code>datasets/visium_mouse_brain/</code></a>. The two required downloads are listed in the <a href="#data-supplied-for-this-assignment">data table</a>.</p>
 <p>The central question is:</p>
 <blockquote>
 <p><strong>Do transcriptionally defined tissue domains correspond to genuine non-random spatial organization?</strong></p>
 </blockquote>
 <p>This task combines expression analysis, spatial statistics, visualization, and a simple null experiment.</p>
+<div class="figure-explain">
+  <figure>
+    <a href="images/visium-v1-input-tissue.png"><img src="images/visium-v1-input-tissue.png" alt="Low-resolution histology image from the supplied V1 Adult Mouse Brain Visium dataset"></a>
+    <figcaption><strong>Your actual input:</strong> low-resolution histology image from the bundled <a href="https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_spatial.tar.gz">10x V1 Adult Mouse Brain spatial archive</a>. Click to enlarge.</figcaption>
+  </figure>
+  <div class="figure-guide">
+    <h4>Three inputs, two separate stages</h4>
+    <ol>
+      <li>Use the count matrix to define expression-based spot clusters.</li>
+      <li>Use the spatial coordinates to map those clusters back onto the tissue and define physical neighbors.</li>
+      <li>Use the histology image as context for the map, without using it to create the initial clusters.</li>
+    </ol>
+  </div>
+</div>
+
 <hr />
 <h2 id="first-identify-domains-without-using-spatial-coordinates">First Identify Domains Without Using Spatial Coordinates</h2>
 <p>Begin by clustering spots using only gene-expression information.</p>
 <p>Do <strong>not</strong> use spatial coordinates during this step.</p>
 <p>A reasonable workflow may look like:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Gene expression
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>      ↓
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Feature selection
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>      ↓
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>PCA
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>      ↓
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Expression-based neighbor graph
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>      ↓
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>Clustering
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Gene expression
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>      ↓
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Feature selection
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>      ↓
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>PCA
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>      ↓
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Expression-based neighbor graph
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>      ↓
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>Clustering
 </span></code></pre></div>
 <p>These groups are therefore defined by their transcriptional profiles rather than their physical locations.</p>
 <p>Once the clusters have been identified, plot the same cluster labels using the true spatial coordinates.</p>
 <p>You can now compare:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Expression space                Physical tissue space
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>      ↓                                  ↓
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Which spots have                Where are those spots
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>similar expression?             located in the tissue?
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Expression space                Physical tissue space
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>      ↓                                  ↓
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Which spots have                Where are those spots
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>similar expression?             located in the tissue?
 </span></code></pre></div>
 <p>Ask whether the expression-defined domains:</p>
 <ul>
@@ -1074,8 +1333,11 @@
 <li>have recognizable boundaries,</li>
 <li>tend to occur next to specific other domains.</li>
 </ul>
-<p><img alt="Illustrative spatial transcriptomics tissue domains" src="images/spatial-domains-schematic.svg" /></p>
-<p><em>Schematic only; this does not show measurements from a spatial transcriptomics dataset.</em></p>
+<figure class="figure-card">
+  <a href="images/squidpy-visium-closeup.png"><img src="images/squidpy-visium-closeup.png" alt="Real Visium mouse-brain histology crop with Sox8 expression and pre-existing tissue labels"></a>
+  <figcaption><strong>Spatial overlay example:</strong> a real Visium mouse-brain crop from the <a href="https://squidpy.readthedocs.io/en/stable/notebooks/examples/plotting/plot_scatter.html">Squidpy plotting tutorial</a> shows Sox8 expression and pre-existing annotations over histology. It illustrates the plotting method, not the expression-only domains you must compute from the supplied V1 dataset. Click to enlarge.</figcaption>
+</figure>
+
 <hr />
 <h2 id="quantify-spatial-organization">Quantify Spatial Organization</h2>
 <p>Visual inspection is useful, but it is not sufficient.</p>
@@ -1088,16 +1350,21 @@
 </ul>
 <p>The agent should explain what the statistic measures and why it is relevant to the question.</p>
 <p>For example, if a cluster strongly neighbors itself in physical space, this provides quantitative evidence that the transcriptional domain is spatially coherent.</p>
+<figure class="figure-card">
+  <a href="images/squidpy-neighborhood-enrichment.png"><img src="images/squidpy-neighborhood-enrichment.png" alt="Squidpy neighborhood-enrichment heatmap with tissue-region clusters on both axes and a color scale"></a>
+  <figcaption><strong>Spatial statistic example:</strong> a <a href="https://squidpy.readthedocs.io/en/stable/notebooks/examples/graph/compute_nhood_enrichment.html">Squidpy tutorial heatmap</a> summarizes observed neighbor relationships against permutations. Its pre-existing region labels are illustrative; for this assignment, use your own expression-only clusters and state how the spatial graph and null were built. Click to enlarge.</figcaption>
+</figure>
+
 <hr />
 <h2 id="identify-spatially-variable-genes">Identify Spatially Variable Genes</h2>
 <p>Next, identify genes whose expression has strong spatial organization.</p>
 <p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Strong spatial pattern           Weak spatial pattern
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>████████                          █░██░█░█
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>████████                          ░█░░██░█
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>░░░░░░░░                          ██░█░░██
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>░░░░░░░░                          ░██░█░░█
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Strong spatial pattern           Weak spatial pattern
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>████████                          █░██░█░█
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>████████                          ░█░░██░█
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>░░░░░░░░                          ██░█░░██
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>░░░░░░░░                          ░██░█░░█
 </span></code></pre></div>
 <p>To keep the analysis lightweight, it is reasonable to restrict this analysis to approximately <strong>100–300 highly variable genes</strong>.</p>
 <hr />
@@ -1105,9 +1372,9 @@
 <p>A gene can be a strong cluster marker without having the strongest spatial pattern.</p>
 <p>Likewise, a spatially organized gene may not be one of the top differential-expression markers.</p>
 <p>Compare:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Differential-expression ranking
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>                vs.
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Spatial-autocorrelation ranking
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Differential-expression ranking
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>                vs.
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Spatial-autocorrelation ranking
 </span></code></pre></div>
 <p>Identify examples of genes that are:</p>
 <ol>
@@ -1119,19 +1386,19 @@
 <hr />
 <h2 id="build-a-negative-control">Build a Negative Control</h2>
 <p>Finally, test whether the observed spatial organization is stronger than expected by chance.</p>
-<p>Design a simple randomization experiment.</p>
+<p>Design a simple randomization experiment with at least <strong>100 repetitions</strong> and a recorded random seed.</p>
 <p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Original coordinates
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>       ↓
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Spatial statistic
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Original coordinates
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>       ↓
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>Spatial statistic
 </span></code></pre></div>
 <p>compared with:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Randomly permuted coordinates
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>       ↓
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>Same spatial statistic
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Randomly permuted coordinates
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>       ↓
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Same spatial statistic
 </span></code></pre></div>
 <p>Another reasonable control is to shuffle cluster labels while keeping the spatial graph fixed.</p>
-<p>The important point is that the <strong>same statistic</strong> should be evaluated on the original and randomized data.</p>
+<p>The important point is that the <strong>same statistic</strong> should be evaluated on the original and randomized data. If you shuffle cluster labels, keep the spatial graph fixed and preserve cluster sizes. If you shuffle coordinates, rebuild the graph in the same way for each repetition. Show the observed value against the distribution of randomized values and report an empirical tail proportion, such as <code>(1 + number of null values at least as extreme as the observed value) / (number of randomizations + 1)</code>.</p>
 <div class="admonition success">
 <p class="admonition-title">What the control should tell you</p>
 <p>If the original dataset contains genuine spatial organization, the spatial signal should generally be stronger than the signal obtained after randomization.</p>
@@ -1139,23 +1406,23 @@
 </div>
 <hr />
 <h3 id="example-starting-prompt_2">Example Starting Prompt</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>I want to determine whether transcriptionally defined tissue domains
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>show genuine spatial organization.
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>First cluster the spots using gene expression without using spatial
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>coordinates.
-</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>
-</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>Then project those clusters back into physical tissue space and quantify
-</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>their spatial organization using an appropriate spatial statistic.
-</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>
-</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>Identify spatially variable genes and compare them with genes identified
-</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>through differential expression.
-</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
-</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>Finally, design a randomized negative control and compare the spatial
-</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>signal before and after randomization.
-</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>
-</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>Clearly distinguish results directly supported by the data from
-</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>biological interpretations.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>I want to determine whether transcriptionally defined tissue domains
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>show genuine spatial organization.
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>First cluster the spots using gene expression without using spatial
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>coordinates.
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>Then project those clusters back into physical tissue space and quantify
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>their spatial organization using an appropriate spatial statistic.
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>Identify spatially variable genes and compare them with genes identified
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>through differential expression.
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>Finally, design a randomized negative control and compare the spatial
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>signal before and after randomization.
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>Clearly distinguish results directly supported by the data from
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>biological interpretations.
 </span></code></pre></div>
 <hr />
 <h3 id="expected-results_2">Expected Results</h3>
@@ -1195,26 +1462,39 @@
 <p><strong>Does transcriptional identity correspond to non-random spatial tissue organization?</strong></p>
 </blockquote>
 <p>Your conclusion should be supported by both <strong>visual evidence and quantitative evidence</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Spatial checkpoints · 25 points</p>
+<ul>
+<li><strong>T1:</strong> Cluster using expression only, then plot those labels at the tissue coordinates.</li>
+<li><strong>T2:</strong> Report a spatial statistic and its spatial-neighbor definition, not just a visual impression.</li>
+<li><strong>T3:</strong> Rank spatially variable genes and show where selected genes are expressed.</li>
+<li><strong>T4:</strong> Compare differential-expression and spatial rankings for the same candidate genes.</li>
+<li><strong>T5:</strong> Compare the observed statistic with <strong>at least 100</strong> fixed-seed randomizations using the same statistic; report the null distribution and an empirical comparison.</li>
+</ul>
+<p>See the <a href="grading_rubric/#task-3-spatial-transcriptomics-25-points">grading summary</a>.</p>
+</div>
 <hr />
 <h1 id="6-what-you-need-to-submit">6. What You Need to Submit</h1>
 <p>Submit <strong>one short report</strong> containing all three analyses, together with the important analysis files used to generate your results.</p>
 <p>A suggested directory structure is:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>submission/
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>├── report.pdf
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>│
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>├── protein/
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>│   ├── analysis code
-</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>│   └── important outputs
-</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>│
-</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>├── single_cell/
-</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>│   ├── analysis code
-</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>│   └── important outputs
-</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>│
-</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>└── spatial/
-</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>    ├── analysis code
-</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>    └── important outputs
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>submission/
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>├── report.pdf
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>├── README.md                 # how to run analyses and where to find evidence
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>│
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>├── protein/
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>│   ├── analysis code
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>│   └── important outputs
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>│
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>├── single_cell/
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>│   ├── analysis code
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>│   └── important outputs
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>│
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>└── spatial/
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>    ├── analysis code
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>    └── important outputs
 </span></code></pre></div>
 <p>You do not need to include package caches, temporary downloads, or other unnecessary files.</p>
+<p>Include a brief checkpoint evidence list in <code>report.pdf</code> (checkpoint ID → page/figure/table/code file). This lets you and the grader locate each result. The <a href="grading_rubric/">rubric</a> explains how missing or partial evidence is scored.</p>
 <hr />
 <h2 id="required-report-content">Required Report Content</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Protein</label><label for="__tabbed_3_2">Single-cell</label><label for="__tabbed_3_3">Spatial transcriptomics</label></div>
@@ -1406,10 +1686,6 @@
     
     
       <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -1,0 +1,53 @@
+.md-typeset .figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.md-typeset .figure-card,
+.md-typeset .figure-explain {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .55rem;
+  overflow: hidden;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 .16rem .55rem rgba(20, 37, 55, .06);
+}
+
+.md-typeset .figure-grid .figure-card { margin: 0; min-width: 0; }
+.md-typeset .figure-card img,
+.md-typeset .figure-explain img { display: block; width: 100%; height: auto; }
+.md-typeset .figure-card a,
+.md-typeset .figure-explain a { display: block; }
+.md-typeset .figure-card figcaption,
+.md-typeset .figure-explain figcaption {
+  padding: .7rem .9rem .8rem;
+  color: var(--md-default-fg-color--light);
+  font-size: .76rem;
+  font-style: normal;
+  line-height: 1.55;
+  text-align: left;
+}
+.md-typeset .figure-card figcaption strong,
+.md-typeset .figure-explain figcaption strong { color: var(--md-default-fg-color); }
+.md-typeset .figure-card figcaption a,
+.md-typeset .figure-explain figcaption a { display: inline; }
+.md-typeset .figure-card--overview img { aspect-ratio: 16 / 10; object-fit: contain; background: #f8f9fb; }
+.md-typeset .figure-explain {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  align-items: center;
+}
+.md-typeset .figure-explain figure { margin: 0; min-width: 0; border-right: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset .figure-explain img { max-height: 23rem; object-fit: contain; background: #f8f9fb; }
+.md-typeset .figure-explain .figure-guide { padding: 1rem 1.15rem; }
+.md-typeset .figure-guide h4 { margin: 0 0 .55rem; }
+.md-typeset .figure-guide p { margin: 0 0 .65rem; }
+.md-typeset .figure-guide ol,
+.md-typeset .figure-guide ul { margin: .5rem 0 0; }
+@media (max-width: 46rem) {
+  .md-typeset .figure-grid,
+  .md-typeset .figure-explain { grid-template-columns: minmax(0, 1fr); }
+  .md-typeset .figure-explain figure { border-right: 0; border-bottom: 1px solid var(--md-default-fg-color--lightest); }
+}

@@ -1,9 +1,12 @@
 site_name: CMU 11781/02741 Generative AI for Biomedicine 2026 Fall Assignments
 nav:
   - Home: index.md
-site_url: https://genaibiomed.github.io/GenAIBioMedAssignment2/
+  - Grading rubric: grading_rubric.md
+site_url: https://genaibiomed.github.io/GenAIBioMedAssignment3/
 theme:
   name: material
+extra_css:
+  - stylesheets/figures.css
 markdown_extensions:
   - admonition
   - attr_list
@@ -21,7 +24,3 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-
-extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

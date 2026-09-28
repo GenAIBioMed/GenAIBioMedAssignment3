@@ -14,6 +14,23 @@
 
 ---
 
+## Checkpoints and grading at a glance
+
+Use the checkpoints below as a progress check. A checkpoint is complete when you can point to the **result and the code or source behind it** in your submission. The [100-point grading rubric](grading_rubric.md) gives the point value and expected evidence for each checkpoint.
+
+| Checkpoints | What you should be able to show | Points |
+| --- | --- | ---: |
+| **P1–P4 · Protein** | Verified sequence/structure mapping, measurements, an annotated structure, and a mutation comparison with uncertainty | 25 |
+| **S1–S5 · Single-cell** | QC and baseline, marker-based labels, resolution and downsampling comparisons, and one investigated ambiguous population | 25 |
+| **T1–T5 · Spatial** | Expression-only clusters on tissue, spatial statistic and genes, DE comparison, and a randomized null result | 25 |
+| **A · Agent audit** | For **each** task: sources, computed versus retrieved information, one independent check, and one weakness or limitation | 15 |
+| **R · Reproducibility and report** | Ordered code, data sources, settings/seeds, figures tied to results, and a checkpoint evidence list | 10 |
+| **Total** | | **100** |
+
+There is no required biological answer or target value. You are graded on whether your methods are appropriate, results are actually shown, and conclusions match the evidence. Before submission, mark each checkpoint in your report as **complete** or **needs revision** and give the page or file that contains its evidence.
+
+---
+
 ## 1. Science Agent Workspaces
 
 Large language models are increasingly being used as interactive scientific assistants. A science agent workspace extends a language model with tools that allow it to do more than answer questions in natural language.
@@ -54,13 +71,20 @@ Human reviews the evidence
 
 **GPT-Rosalind / Rosalind Workbench** follows a similar idea with a stronger focus on life-science workflows. It is designed to help researchers work with biological data, scientific evidence, sequencing workflows, computational tools, and reusable analysis procedures.
 
+<div class="figure-grid">
+  <figure class="figure-card figure-card--overview">
+    <a href="images/claude-science-workflow.webp"><img src="images/claude-science-workflow.webp" alt="Claude Science interface showing an scVI parameter sweep beside a live Python notebook"></a>
+    <figcaption><strong>Claude Science:</strong> an agent organizes an scVI parameter sweep beside executable notebook code. This is an <a href="https://claude.com/product/claude-science">official product example</a>, not a result from this assignment. Click to enlarge.</figcaption>
+  </figure>
+  <figure class="figure-card figure-card--overview">
+    <a href="images/gpt-rosalind-single-cell.webp"><img src="images/gpt-rosalind-single-cell.webp" alt="GPT-Rosalind example showing a single-cell quality-control request, output files, and UMAP plots"></a>
+    <figcaption><strong>GPT-Rosalind:</strong> a single-cell QC request leads to saved artifacts and plots in an <a href="https://openai.com/gpt-rosalind/">official product example</a>. The task below still requires you to inspect the code and evidence. Click to enlarge.</figcaption>
+  </figure>
+</div>
+
 Although their implementations differ, both systems illustrate the same important idea:
 
 > ==A scientific agent should not only generate an answer. It should be able to perform and document the analysis that supports that answer.==
-
-![Illustrated science-agent research workflow](images/science-agent-workspace.svg)
-
-*Conceptual illustration; no live product screenshot or agent run is shown.*
 
 ---
 
@@ -95,6 +119,11 @@ A simplified architecture is:
 ```
 
 This makes OpenScience particularly useful for this assignment because each of the three tasks requires the agent to combine **computation with scientific reasoning**.
+
+<figure class="figure-card">
+  <a href="images/openscience-workspace.png"><img src="images/openscience-workspace.png" alt="OpenScience workspace with Customize and Files in the sidebar, a recorded analysis, and a model selector below the prompt"></a>
+  <figcaption><strong>Where to look:</strong> <em>Customize</em> is in the left sidebar, the activity and evidence trail is in the center, and the selected model appears below the prompt. This <a href="https://github.com/synthetic-sciences/openscience/blob/main/assets/workspace.png">official OpenScience screenshot</a> is a product demonstration using EGFR data, not a worked answer. Click to enlarge.</figcaption>
+</figure>
 
 !!! important "You are still responsible for the analysis"
 
@@ -156,7 +185,12 @@ OpenScience is the workspace, but it still requires an underlying language model
 
         When selecting a model, prefer one that supports **tool use / function calling** and has a reasonably large context window.
 
-        Free models available through OpenRouter can change over time, so you do not need to use the same model as other students.
+    Free models available through OpenRouter can change over time, so you do not need to use the same model as other students.
+
+<figure class="figure-card">
+  <a href="images/openrouter-free-models.png"><img src="images/openrouter-free-models.png" alt="OpenRouter public Free AI Models collection with model names, context lengths, and input and output prices"></a>
+  <figcaption><strong>Find a model:</strong> the <a href="https://openrouter.ai/collections/free-models">OpenRouter free-model collection</a> displays current candidates and prices. This screenshot was captured in September 2026; rankings and availability change. Open each candidate's details to check tool calling and context length. Click to enlarge.</figcaption>
+</figure>
 
 ---
 
@@ -227,6 +261,13 @@ openscience keys add
 
 If you are using OpenRouter, add your OpenRouter API key and select an appropriate model.
 
+For the OpenRouter route:
+
+1. Create a key on the [OpenRouter API Keys page](https://openrouter.ai/settings/keys).
+2. Find a suitable text model in the [free-model collection](https://openrouter.ai/collections/free-models); confirm that it supports tool calling and check its current rate limits.
+3. In OpenScience, open **Customize → Models**, connect **OpenRouter**, enter the key, and select that model. The [OpenScience setup instructions](https://github.com/synthetic-sciences/openscience#install) also show the `openscience keys add` route.
+4. Try a small prompt that reads a file and runs a short calculation. Confirm that the selected model can actually use tools before starting the assignment.
+
 !!! danger "Never expose API keys"
 
     Do **not** include API keys in:
@@ -291,6 +332,28 @@ you intend to use and why.
     > What would be an appropriate negative control?
 
 The three tasks below are designed so that the **first result should not be the end of the analysis**.
+
+---
+
+## Data supplied for this assignment
+
+The repository includes the small input files below in [`datasets/`](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/tree/main/datasets). Download links point both to the repository copy and to the original source. The spatial dataset is the required input for Task 3; 4HJO is an **optional practice structure**, since the protein and candidate mutations for Task 1 are supplied separately.
+
+| Use | Repository download | Original source | Size |
+| --- | --- | --- | ---: |
+| **Task 2:** PBMC3k filtered counts | [PBMC3k matrix archive](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz) | [10x Genomics PBMC3k](https://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz) | 7.3 MiB |
+| **Task 3:** adult mouse-brain Visium counts | [Visium count matrix](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5) | [10x Genomics count matrix](https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5) | 20.1 MiB |
+| **Task 3:** matching spatial coordinates and tissue images | [Visium spatial archive](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_spatial.tar.gz) | [10x Genomics spatial archive](https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_spatial.tar.gz) | 8.6 MiB |
+| **Task 1 practice only:** EGFR structure | [4HJO mmCIF](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz) · [4HJO PDB](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.pdb) | [RCSB PDB 4HJO](https://www.rcsb.org/structure/4HJO) | 71 + 219 KiB |
+
+If you cloned the repository, these files are already under `datasets/`. Extract the two archives once from the repository root:
+
+```bash
+tar -xzf datasets/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -C datasets/pbmc3k
+tar -xzf datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_spatial.tar.gz -C datasets/visium_mouse_brain
+```
+
+The PBMC3k matrix then lives in `datasets/pbmc3k/filtered_gene_bc_matrices/hg19/`. For Visium, keep the `.h5` file and extracted `spatial/` folder together in `datasets/visium_mouse_brain/`. See the [dataset README](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/blob/main/datasets/README.md) for checksums, provenance, and loading examples. Record the exact input file names and any filtering decisions in your report.
 
 ---
 
@@ -364,6 +427,11 @@ is much weaker than:
 
 > "The mutated residue is 4.1 Å from a catalytic residue and lies within the same conserved domain."
 
+<figure class="figure-card">
+  <a href="images/egfr-ligand-distances.png"><img src="images/egfr-ligand-distances.png" alt="Measured shortest heavy-atom distances from twelve EGFR 4HJO chain A residues to erlotinib ligand AQ4"></a>
+  <figcaption><strong>Measurement example:</strong> the 12 closest modeled chain-A residues to erlotinib (AQ4) in <a href="https://www.rcsb.org/structure/4HJO">4HJO</a>, measured as the minimum heavy-atom distance. The <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/blob/main/scripts/render_4hjo_contacts.py">plotting code</a> and coordinate file are supplied. Proximity alone does not show what a mutation will do; use the assigned protein and candidate sites in your own analysis. Click to enlarge.</figcaption>
+</figure>
+
 ---
 
 ### Distinguish Observation from Interpretation
@@ -420,9 +488,31 @@ A useful summary table might look like:
 | Mutation B | Surface loop       | No nearby functional residues | Effect uncertain     | Low        |
 | Mutation C | Protein core       | Multiple hydrophobic contacts | May destabilize fold | Moderate   |
 
-![Illustrative protein ribbon with a highlighted mutation and functional site](images/protein-mutation-schematic.svg)
+<div class="figure-explain">
+  <figure>
+    <a href="images/egfr-4hjo.jpeg"><img src="images/egfr-4hjo.jpeg" alt="Experimental EGFR kinase domain ribbon with bound erlotinib from RCSB PDB 4HJO"></a>
+    <figcaption><strong>Practice structure:</strong> experimental EGFR kinase domain with erlotinib, <a href="https://www.rcsb.org/structure/4HJO">RCSB PDB 4HJO</a>. No candidate mutation is marked. Click to enlarge.</figcaption>
+  </figure>
+  <div class="figure-guide">
+    <h4>Turn a structure image into evidence</h4>
+    <ol>
+      <li>Record the PDB ID, chain, ligand, residue numbering, and which assigned positions are covered.</li>
+      <li>Mark <em>your assigned</em> candidate sites on the structure.</li>
+      <li>Measure relevant atom-to-atom distances and state the measurement rule.</li>
+      <li>Explain what the geometry suggests, with an explicit uncertainty statement.</li>
+    </ol>
+    <p>Use the bundled <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz">4HJO structure</a> only to practice this workflow. RCSB lists one mutation in its deposited construct, so verify sequence mapping before drawing conclusions. Your submission must use the assigned protein.</p>
+  </div>
+</div>
 
-*Schematic only; this is not a structure of a particular protein or mutation.*
+!!! success "Protein checkpoints · 25 points"
+
+    - **P1:** Confirm the protein, mutation notation, and residue mapping to the chosen structure or model.
+    - **P2:** Show reproducible structural measurements for the candidates, or document why a measurement is not valid and use a justified alternative.
+    - **P3:** Separate observed facts, mechanistic predictions, external evidence, and uncertainty in the mutation comparison.
+    - **P4:** Include an annotated structure and a comparison table covering every candidate.
+
+    See the [grading summary](grading_rubric.md#task-1-protein-mutation-analysis-25-points).
 
 ---
 
@@ -430,7 +520,7 @@ A useful summary table might look like:
 
 ## Scientific Question
 
-For this task, you will analyze the small **PBMC3k single-cell RNA-seq dataset**.
+For this task, analyze the **PBMC3k single-cell RNA-seq dataset** supplied as a [filtered count-matrix archive](#data-supplied-for-this-assignment). Extract it as shown above; begin from the counts, without preassigned cell-type labels.
 
 Your goal is not only to identify major immune-cell populations, but also to ask:
 
@@ -472,6 +562,11 @@ Part of the assignment is evaluating whether the agent chooses and correctly imp
 
 Once clusters have been identified, use **marker genes derived from the data** to annotate major cell populations.
 
+<figure class="figure-card">
+  <a href="images/scanpy-qc-example.png"><img src="images/scanpy-qc-example.png" alt="Three Scanpy QC violin plots for genes per cell, total counts, and mitochondrial count fraction"></a>
+  <figcaption><strong>QC example:</strong> the <a href="https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering.html#quality-control">Scanpy preprocessing tutorial</a> inspects genes per cell, total counts, and mitochondrial fraction before choosing filters. It uses a different BMMC dataset; choose and justify thresholds from your own PBMC3k measurements. Click to enlarge.</figcaption>
+</figure>
+
 The reasoning should follow:
 
 ```text
@@ -498,7 +593,7 @@ Final annotation
 
 After obtaining a reasonable baseline result, change the clustering conditions.
 
-For example, compare several Leiden resolutions:
+Compare at least three Leiden resolutions while keeping the other preprocessing and neighbor settings fixed. One reasonable set is:
 
 ```text
 resolution = 0.3
@@ -507,6 +602,11 @@ resolution = 1.0
 ```
 
 You are not trying to find one "correct" resolution.
+
+<figure class="figure-card">
+  <a href="images/scanpy-resolution-example.png"><img src="images/scanpy-resolution-example.png" alt="Scanpy UMAP panels of the same cells colored by clusters at three Leiden resolutions"></a>
+  <figcaption><strong>Resolution comparison:</strong> <a href="https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering.html#clustering">Scanpy's example</a> shows how the same embedding can split into more groups as Leiden resolution increases. It uses a different dataset and different values; your report should compare biological labels and markers as well as cluster counts. Click to enlarge.</figcaption>
+</figure>
 
 Instead, ask:
 
@@ -517,9 +617,9 @@ Instead, ask:
 
 Next, perform a simple **downsampling experiment**.
 
-For example, randomly retain approximately 70% of the cells and repeat the analysis.
+For example, randomly retain approximately 70% of the cells (any fraction from 60–80% is acceptable), record the seed, and repeat the relevant baseline analysis steps.
 
-Compare the downsampled result with the original analysis using appropriate evidence such as:
+Compare the downsampled result with the original analysis **on cells present in both runs** using appropriate evidence such as:
 
 * cluster composition,
 * marker genes,
@@ -594,9 +694,20 @@ A useful summary table might be:
 | Population B    | ...               | Mostly                     | Yes                        | Splits at high resolution |
 | Population C    | ...               | No                         | No                         | Ambiguous population      |
 
-![Illustrative UMAP with synthetic point clusters](images/single-cell-umap-schematic.svg)
+<figure class="figure-card">
+  <a href="images/pbmc-reference-umap.png"><img src="images/pbmc-reference-umap.png" alt="UMAP of 700 real PBMC cells with reference labels from the separate Scanpy PBMC68k reduced dataset"></a>
+  <figcaption><strong>Annotated UMAP example:</strong> real cells and reference labels from <a href="https://scanpy.readthedocs.io/en/stable/tutorials/plotting/core.html">Scanpy's reduced PBMC68k dataset</a>, plotted for this page. This is a different dataset from your PBMC3k analysis; do not copy these labels or expect this layout. Click to enlarge.</figcaption>
+</figure>
 
-*Synthetic points for illustration only; these are not PBMC3k analysis results.*
+!!! success "Single-cell checkpoints · 25 points"
+
+    - **S1:** Record QC decisions and a reproducible baseline, including cluster counts and a cluster-labeled UMAP.
+    - **S2:** Support major cell labels with markers computed from the data; retain uncertain labels where needed.
+    - **S3:** Compare at least three Leiden resolutions while keeping other settings fixed, and quantify a meaningful change.
+    - **S4:** Rerun a fixed-seed 60–80% cell subsample and compare it with the baseline on retained cells.
+    - **S5:** Investigate one ambiguous or unstable population with marker evidence.
+
+    See the [grading summary](grading_rubric.md#task-2-single-cell-analysis-25-points).
 
 The final discussion should answer:
 
@@ -608,13 +719,28 @@ The final discussion should answer:
 
 ## Scientific Question
 
-For the final task, you will work with a small spatial transcriptomics dataset, such as a Visium example dataset available through Squidpy.
+For the final task, use the **V1 Adult Mouse Brain Visium** count matrix, spatial coordinates, and tissue images supplied in [`datasets/visium_mouse_brain/`](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/tree/main/datasets/visium_mouse_brain). The two required downloads are listed in the [data table](#data-supplied-for-this-assignment).
 
 The central question is:
 
 > **Do transcriptionally defined tissue domains correspond to genuine non-random spatial organization?**
 
 This task combines expression analysis, spatial statistics, visualization, and a simple null experiment.
+
+<div class="figure-explain">
+  <figure>
+    <a href="images/visium-v1-input-tissue.png"><img src="images/visium-v1-input-tissue.png" alt="Low-resolution histology image from the supplied V1 Adult Mouse Brain Visium dataset"></a>
+    <figcaption><strong>Your actual input:</strong> low-resolution histology image from the bundled <a href="https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_spatial.tar.gz">10x V1 Adult Mouse Brain spatial archive</a>. Click to enlarge.</figcaption>
+  </figure>
+  <div class="figure-guide">
+    <h4>Three inputs, two separate stages</h4>
+    <ol>
+      <li>Use the count matrix to define expression-based spot clusters.</li>
+      <li>Use the spatial coordinates to map those clusters back onto the tissue and define physical neighbors.</li>
+      <li>Use the histology image as context for the map, without using it to create the initial clusters.</li>
+    </ol>
+  </div>
+</div>
 
 ---
 
@@ -658,9 +784,10 @@ Ask whether the expression-defined domains:
 * have recognizable boundaries,
 * tend to occur next to specific other domains.
 
-![Illustrative spatial transcriptomics tissue domains](images/spatial-domains-schematic.svg)
-
-*Schematic only; this does not show measurements from a spatial transcriptomics dataset.*
+<figure class="figure-card">
+  <a href="images/squidpy-visium-closeup.png"><img src="images/squidpy-visium-closeup.png" alt="Real Visium mouse-brain histology crop with Sox8 expression and pre-existing tissue labels"></a>
+  <figcaption><strong>Spatial overlay example:</strong> a real Visium mouse-brain crop from the <a href="https://squidpy.readthedocs.io/en/stable/notebooks/examples/plotting/plot_scatter.html">Squidpy plotting tutorial</a> shows Sox8 expression and pre-existing annotations over histology. It illustrates the plotting method, not the expression-only domains you must compute from the supplied V1 dataset. Click to enlarge.</figcaption>
+</figure>
 
 ---
 
@@ -678,6 +805,11 @@ Use an appropriate quantitative spatial method such as:
 The agent should explain what the statistic measures and why it is relevant to the question.
 
 For example, if a cluster strongly neighbors itself in physical space, this provides quantitative evidence that the transcriptional domain is spatially coherent.
+
+<figure class="figure-card">
+  <a href="images/squidpy-neighborhood-enrichment.png"><img src="images/squidpy-neighborhood-enrichment.png" alt="Squidpy neighborhood-enrichment heatmap with tissue-region clusters on both axes and a color scale"></a>
+  <figcaption><strong>Spatial statistic example:</strong> a <a href="https://squidpy.readthedocs.io/en/stable/notebooks/examples/graph/compute_nhood_enrichment.html">Squidpy tutorial heatmap</a> summarizes observed neighbor relationships against permutations. Its pre-existing region labels are illustrative; for this assignment, use your own expression-only clusters and state how the spatial graph and null were built. Click to enlarge.</figcaption>
+</figure>
 
 ---
 
@@ -728,7 +860,7 @@ Explain why these two analyses measure different properties.
 
 Finally, test whether the observed spatial organization is stronger than expected by chance.
 
-Design a simple randomization experiment.
+Design a simple randomization experiment with at least **100 repetitions** and a recorded random seed.
 
 For example:
 
@@ -748,7 +880,7 @@ Same spatial statistic
 
 Another reasonable control is to shuffle cluster labels while keeping the spatial graph fixed.
 
-The important point is that the **same statistic** should be evaluated on the original and randomized data.
+The important point is that the **same statistic** should be evaluated on the original and randomized data. If you shuffle cluster labels, keep the spatial graph fixed and preserve cluster sizes. If you shuffle coordinates, rebuild the graph in the same way for each repetition. Show the observed value against the distribution of randomized values and report an empirical tail proportion, such as `(1 + number of null values at least as extreme as the observed value) / (number of randomizations + 1)`.
 
 !!! success "What the control should tell you"
 
@@ -806,6 +938,16 @@ The final discussion should answer:
 
 Your conclusion should be supported by both **visual evidence and quantitative evidence**.
 
+!!! success "Spatial checkpoints · 25 points"
+
+    - **T1:** Cluster using expression only, then plot those labels at the tissue coordinates.
+    - **T2:** Report a spatial statistic and its spatial-neighbor definition, not just a visual impression.
+    - **T3:** Rank spatially variable genes and show where selected genes are expressed.
+    - **T4:** Compare differential-expression and spatial rankings for the same candidate genes.
+    - **T5:** Compare the observed statistic with **at least 100** fixed-seed randomizations using the same statistic; report the null distribution and an empirical comparison.
+
+    See the [grading summary](grading_rubric.md#task-3-spatial-transcriptomics-25-points).
+
 ---
 
 # 6. What You Need to Submit
@@ -817,6 +959,7 @@ A suggested directory structure is:
 ```text
 submission/
 ├── report.pdf
+├── README.md                 # how to run analyses and where to find evidence
 │
 ├── protein/
 │   ├── analysis code
@@ -832,6 +975,8 @@ submission/
 ```
 
 You do not need to include package caches, temporary downloads, or other unnecessary files.
+
+Include a brief checkpoint evidence list in `report.pdf` (checkpoint ID → page/figure/table/code file). This lets you and the grader locate each result. The [rubric](grading_rubric.md) explains how missing or partial evidence is scored.
 
 ---
 

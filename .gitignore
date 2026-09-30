@@ -1,3 +1,5 @@
 **.tfr
 datasets/pbmc3k/filtered_gene_bc_matrices/
 datasets/visium_mouse_brain/spatial/
+recitation/
+.venv/

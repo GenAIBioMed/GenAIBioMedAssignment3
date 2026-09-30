@@ -10,7 +10,7 @@ These are small public input files kept in the repository so students can work f
 | `protein/4hjo.cif.gz` | [RCSB PDB 4HJO](https://files.rcsb.org/download/4hjo.cif.gz) | `391217cffb1e59d83d669653ecbd710d0ee8ca65d5bc147375365b6257a6d81e` |
 | `protein/4hjo.pdb` | [RCSB PDB 4HJO PDB format](https://files.rcsb.org/download/4HJO.pdb) | `95b122b5e152e705fcbcb4314be07ce9378c5a64ab3226e06046ca24ca674948` |
 
-The PBMC3k files were released by 10x Genomics for its [3k PBMC example](https://www.10xgenomics.com/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-0-0). The Visium count matrix and spatial archive must be used together for Task 3. The two 4HJO formats contain the same optional Task 1 practice structure; the PDB file is used to create the [example distance plot](../scripts/render_4hjo_contacts.py). Use the protein and variants assigned by the instructor for the graded analysis. [RCSB's usage policy](https://www.rcsb.org/pages/usage-policy) describes the PDB archive's CC0 terms.
+The PBMC3k files were released by 10x Genomics for its [3k PBMC example](https://www.10xgenomics.com/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-0-0). The Visium count matrix and spatial archive must be used together for Task 3. Task 1 uses **EGFR (UniProt P00533), G719S, T790M, and L858R**. The two 4HJO formats contain the same starting structure; the PDB file is used to create the [example distance plot](../scripts/render_4hjo_contacts.py). The variant names use canonical EGFR numbering, which differs from 4HJO chain-A residue labels. [RCSB's usage policy](https://www.rcsb.org/pages/usage-policy) describes the PDB archive's CC0 terms.
 
 ## Extract and load
 
@@ -33,6 +33,7 @@ visium = sq.read.visium(
     "datasets/visium_mouse_brain",
     counts_file="V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5",
 )
+visium.var_names_make_unique()  # this file contains duplicate gene symbols
 ```
 
 The Visium object should include spatial coordinates in `visium.obsm["spatial"]` and tissue images in `visium.uns["spatial"]`, as described by the [Squidpy Visium reader](https://squidpy.readthedocs.io/en/stable/api/squidpy.read.visium.html). Treat these files as raw assignment inputs; the reference images on the course page come from separate examples and are not expected outputs for these files.

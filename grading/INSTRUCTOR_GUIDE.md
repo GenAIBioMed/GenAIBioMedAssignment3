@@ -6,6 +6,8 @@ Score each subitem independently. Award 0 when its evidence is missing or cannot
 
 ## Task 1: Protein mutation analysis (25)
 
+The graded inputs are EGFR (UniProt P00533) variants G719S, T790M, and L858R in canonical numbering. Students start from 4HJO; check that they account for its chain-A numbering offset and engineered V948R construct rather than treating the deposited residue labels as canonical positions.
+
 ### P1. Source and residue mapping (5)
 
 - 1: Protein name, accession, and sequence source/version.
@@ -28,7 +30,7 @@ Score each subitem independently. Award 0 when its evidence is missing or cannot
 
 ### P4. Communication artifacts (5)
 
-- 3: Legible figure of the assigned protein with all candidates and a relevant domain, ligand, or functional site; 2 if only some candidates are marked, 1 for an unlabeled real structure.
+- 3: Legible EGFR figure with all three variants and a relevant domain, ligand, or functional site; 2 if only some candidates are marked, 1 for an unlabeled real structure.
 - 2: One table covering all candidates with context, evidence, proposed effect, and confidence; 1 if candidates or two required columns are missing.
 
 ## Task 2: Single-cell analysis (25)

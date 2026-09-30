@@ -4,7 +4,7 @@
 
     In this assignment, you will use a **science agent workspace** to complete three small but realistic computational biology tasks:
 
-    1. **Protein mutation analysis**
+    1. **EGFR mutation analysis** of G719S, T790M, and L858R
     2. **Single-cell RNA-seq analysis and robustness testing**
     3. **Spatial transcriptomics and spatial organization**
 
@@ -137,9 +137,9 @@ This makes OpenScience particularly useful for this assignment because each of t
 
 OpenScience is the workspace, but it still requires an underlying language model.
 
-=== "If you already have Claude or GPT access"
+=== "If you already have a science-agent workspace"
 
-    If you already have access to a strong Claude or GPT model that can be used for scientific or agentic workflows, we recommend using your existing subscription.
+    If you can use Claude Science, Rosalind Workbench, or another science-agent workspace with file access and code execution, you may use it for this assignment. An ordinary chat subscription does not necessarily include API credentials for OpenScience; check your selected provider's connection and billing method before starting.
 
     Stronger models generally perform better at:
 
@@ -228,19 +228,20 @@ Choose one installation method.
 
 Once OpenScience starts correctly, create a workspace for this assignment.
 
-A simple directory structure is:
+A simple layout **inside the cloned repository** is:
 
 ```text
-science-agent-assignment/
+GenAIBioMedAssignment3/
+├── datasets/                 # supplied inputs
 ├── protein/
 ├── single_cell/
 └── spatial/
 ```
 
-For example:
+Open the repository root so the agent can see the supplied `datasets/` folder as well as your task folders. From that root, run:
 
 ```bash
-openscience ./protein
+openscience
 ```
 
 ### Configure your model
@@ -260,6 +261,16 @@ openscience keys add
 ```
 
 If you are using OpenRouter, add your OpenRouter API key and select an appropriate model.
+
+For an independent Python environment on macOS or Linux, Python 3.12 is a practical choice for current Scanpy and Squidpy releases:
+
+```bash
+python3.12 -m venv .venv
+. .venv/bin/activate
+python -m pip install 'scanpy[leiden]' squidpy
+```
+
+On Windows, run these Linux commands inside WSL2 (for example, Ubuntu). An agent may manage its own environment instead; either way, record the versions used for your submitted analysis.
 
 For the OpenRouter route:
 
@@ -337,14 +348,14 @@ The three tasks below are designed so that the **first result should not be the 
 
 ## Data supplied for this assignment
 
-The repository includes the small input files below in [`datasets/`](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/tree/main/datasets). Download links point both to the repository copy and to the original source. The spatial dataset is the required input for Task 3; 4HJO is an **optional practice structure**, since the protein and candidate mutations for Task 1 are supplied separately.
+The repository includes the input files below in [`datasets/`](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/tree/main/datasets). Download links point both to the repository copy and to the original source. Task 1 uses human **EGFR (UniProt P00533)** and the three canonical-sequence variants **G719S, T790M, and L858R**. The bundled 4HJO structure is its required starting structure; you may add a better-suited structure if you justify the choice.
 
 | Use | Repository download | Original source | Size |
 | --- | --- | --- | ---: |
 | **Task 2:** PBMC3k filtered counts | [PBMC3k matrix archive](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz) | [10x Genomics PBMC3k](https://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz) | 7.3 MiB |
 | **Task 3:** adult mouse-brain Visium counts | [Visium count matrix](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5) | [10x Genomics count matrix](https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_filtered_feature_bc_matrix.h5) | 20.1 MiB |
 | **Task 3:** matching spatial coordinates and tissue images | [Visium spatial archive](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/visium_mouse_brain/V1_Adult_Mouse_Brain_spatial.tar.gz) | [10x Genomics spatial archive](https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Adult_Mouse_Brain/V1_Adult_Mouse_Brain_spatial.tar.gz) | 8.6 MiB |
-| **Task 1 practice only:** EGFR structure | [4HJO mmCIF](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz) · [4HJO PDB](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.pdb) | [RCSB PDB 4HJO](https://www.rcsb.org/structure/4HJO) | 71 + 219 KiB |
+| **Task 1:** EGFR kinase-domain structure | [4HJO mmCIF](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz) · [4HJO PDB](https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.pdb) | [RCSB PDB 4HJO](https://www.rcsb.org/structure/4HJO) | 71 + 219 KiB |
 
 If you cloned the repository, these files are already under `datasets/`. Extract the two archives once from the repository root:
 
@@ -361,7 +372,7 @@ The PBMC3k matrix then lives in `datasets/pbmc3k/filtered_gene_bc_matrices/hg19/
 
 ## Scientific Question
 
-You will be given a protein and several candidate missense mutations.
+Analyze human **EGFR (UniProt P00533)** and compare the missense variants **G719S, T790M, and L858R**, using canonical EGFR residue numbering. Begin with the supplied **4HJO chain A** structure with bound erlotinib (ligand AQ4). Its residue labels differ from canonical EGFR numbering, and its deposited construct has an engineered V948R substitution. Verify the mapping and account for these limitations; a distance in 4HJO is a measurement of the unmutated residue in that structure, not a direct measurement of a mutant protein.
 
 Your goal is to determine:
 
@@ -429,7 +440,7 @@ is much weaker than:
 
 <figure class="figure-card">
   <a href="images/egfr-ligand-distances.png"><img src="images/egfr-ligand-distances.png" alt="Measured shortest heavy-atom distances from twelve EGFR 4HJO chain A residues to erlotinib ligand AQ4"></a>
-  <figcaption><strong>Measurement example:</strong> the 12 closest modeled chain-A residues to erlotinib (AQ4) in <a href="https://www.rcsb.org/structure/4HJO">4HJO</a>, measured as the minimum heavy-atom distance. The <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/blob/main/scripts/render_4hjo_contacts.py">plotting code</a> and coordinate file are supplied. Proximity alone does not show what a mutation will do; use the assigned protein and candidate sites in your own analysis. Click to enlarge.</figcaption>
+  <figcaption><strong>Measurement example:</strong> the 12 closest modeled chain-A residues to erlotinib (AQ4) in <a href="https://www.rcsb.org/structure/4HJO">4HJO</a>, measured as the minimum heavy-atom distance. The <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/blob/main/scripts/render_4hjo_contacts.py">plotting code</a> and coordinate file are supplied. Proximity alone does not show what a mutation will do; map and measure all three assigned EGFR sites in your own analysis. Click to enlarge.</figcaption>
 </figure>
 
 ---
@@ -491,17 +502,17 @@ A useful summary table might look like:
 <div class="figure-explain">
   <figure>
     <a href="images/egfr-4hjo.jpeg"><img src="images/egfr-4hjo.jpeg" alt="Experimental EGFR kinase domain ribbon with bound erlotinib from RCSB PDB 4HJO"></a>
-    <figcaption><strong>Practice structure:</strong> experimental EGFR kinase domain with erlotinib, <a href="https://www.rcsb.org/structure/4HJO">RCSB PDB 4HJO</a>. No candidate mutation is marked. Click to enlarge.</figcaption>
+    <figcaption><strong>Starting structure:</strong> experimental EGFR kinase domain with erlotinib, <a href="https://www.rcsb.org/structure/4HJO">RCSB PDB 4HJO</a>. No candidate mutation is marked. Click to enlarge.</figcaption>
   </figure>
   <div class="figure-guide">
     <h4>Turn a structure image into evidence</h4>
     <ol>
       <li>Record the PDB ID, chain, ligand, residue numbering, and which assigned positions are covered.</li>
-      <li>Mark <em>your assigned</em> candidate sites on the structure.</li>
+      <li>Mark G719S, T790M, and L858R on the structure after mapping canonical to PDB numbering.</li>
       <li>Measure relevant atom-to-atom distances and state the measurement rule.</li>
       <li>Explain what the geometry suggests, with an explicit uncertainty statement.</li>
     </ol>
-    <p>Use the bundled <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz">4HJO structure</a> only to practice this workflow. RCSB lists one mutation in its deposited construct, so verify sequence mapping before drawing conclusions. Your submission must use the assigned protein.</p>
+    <p>Start from the bundled <a href="https://github.com/GenAIBioMed/GenAIBioMedAssignment3/raw/refs/heads/main/datasets/protein/4hjo.cif.gz">4HJO structure</a>. Its construct contains V948R and represents an inactive, ligand-bound conformation. Discuss how these conditions limit claims about the three EGFR substitutions; additional structures may strengthen your comparison.</p>
   </div>
 </div>
 

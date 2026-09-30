@@ -6,12 +6,14 @@ The assignment is worth **100 points**: Protein **25**, single-cell **25**, spat
 
 ## Task 1: Protein mutation analysis — 25 points
 
+Use EGFR (UniProt P00533) and compare G719S, T790M, and L858R in canonical numbering, beginning with the supplied 4HJO structure.
+
 | Checkpoint | Show in your submission | Points |
 | --- | --- | ---: |
 | **P1 · Map the variants** | Identify the protein, verify each variant against its sequence, and map all candidate residues to the chosen structure/model. | 5 |
 | **P2 · Measure structural evidence** | Define and report reproducible measurements for each candidate, or explain and document a justified alternative where coordinates are unavailable. | 7 |
 | **P3 · Interpret with evidence** | Compare candidate mechanisms using observed results and cited sources; separate observations from predictions and state uncertainty. | 8 |
-| **P4 · Communicate the comparison** | Provide an annotated structure of the assigned protein and one table covering every candidate. | 5 |
+| **P4 · Communicate the comparison** | Provide an annotated EGFR structure and one table covering all three variants. | 5 |
 
 ## Task 2: Single-cell analysis — 25 points
 
